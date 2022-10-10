@@ -14,7 +14,7 @@ export const resultList = buildResultList(headlessEngine);
 
 export const facet = buildFacet(headlessEngine, {options: {field: 'source'}});
 
-export const pager = buildPager(headlessEngine);
+export const pager = buildPager(headlessEngine, {options: {numberOfPages: 3}});
 
 const initialCriterion = criteria[0][1];
 export const sort = buildSort(headlessEngine, {

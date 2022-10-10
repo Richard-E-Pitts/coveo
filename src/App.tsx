@@ -7,6 +7,7 @@ import {ResultList} from './components/result-list';
 import {Facet} from './components/facet';
 import {Pager} from './components/pager';
 import {Sort} from './components/sort';
+import {resultTemplatesManager} from './controllers/result-templates-manager';
 import {
   facet,
   pager,
@@ -37,10 +38,13 @@ function App() {
             <Facet controller={facet} title="Source" />
           </div>
           <div className="results-section column">
-            <Sort controller={sort} criteria={criteria} />
-            <ResultList controller={resultList} />
-            <Pager controller={pager} />
-          </div>
+    <Sort controller={sort} criteria={criteria} />
+    <ResultList
+       controller={resultList}
+       resultTemplatesManager={resultTemplatesManager}
+     />
+    <Pager controller={pager} />
+   </div>
         </div>
       </div>
     </div>

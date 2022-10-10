@@ -15,6 +15,18 @@ export const Pager: FunctionComponent<PagerProps> = (props) => {
 
   return (
     <nav className="pager">
+            <button
+ disabled={controller.isCurrentPage(1)}
+ onClick={() => controller.selectPage(1)}
+>
+ {'<<'}
+</button>
+      <button
+        disabled={!state.hasPreviousPage}
+        onClick={() => controller.previousPage()}
+      >
+        {'<'}
+      </button>
       {state.currentPages.map((page) => (
         <button
           key={page}
@@ -24,6 +36,18 @@ export const Pager: FunctionComponent<PagerProps> = (props) => {
           {page}
         </button>
       ))}
+      <button
+        disabled={!state.hasNextPage}
+        onClick={() => controller.nextPage()}
+      >
+        {'>'}
+      </button>
+<button
+ disabled={controller.isCurrentPage(state.maxPage)}
+ onClick={() => controller.selectPage(state.maxPage)}
+>
+ {'>>'}
+</button>
     </nav>
   );
-};
+      }
